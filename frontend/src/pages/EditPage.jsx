@@ -14,10 +14,11 @@ const AddBook = () => {
   const token = localStorage.getItem('token');
 
   const [book, setBook] = useState({});
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchBook = async (e) => {
     try {
-      const response = await axios.get(`http://localhost:3000/books/${id}`,{
+      const response = await axios.get(`${API_URL}/books/${id}`,{
            headers: {
         Authorization: token,
       }
@@ -47,7 +48,7 @@ const AddBook = () => {
     try {
         e.preventDefault()
       setLoading(true);
-      const response = await axios.patch(`http://localhost:3000/books/${id}`,book,{
+      const response = await axios.patch(`${API_URL}/books/${id}`,book,{
            headers: {
         Authorization: token,
       }

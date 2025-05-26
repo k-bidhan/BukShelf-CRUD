@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar'
 import Navbar from '../components/Navbar'
 
 const SinglePage = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
     const {id} = useParams()
     const [book, setBook] = useState({})
       const [loading, setLoading] = useState(false);
@@ -14,7 +15,7 @@ const SinglePage = () => {
 
     const fetchBook = async ()=>{
         try{
-            const response = await axios.get(`http://localhost:3000/books/${id}`,{
+            const response = await axios.get(`${API_URL}/books/${id}`,{
            headers: {
         Authorization: token,
       }
@@ -38,7 +39,7 @@ const SinglePage = () => {
        try{
             // e.preventDefault()
             setLoading(true)
-            const response = await axios.delete(`http://localhost:3000/books/${id}`,{
+            const response = await axios.delete(`${API_URL}/books/${id}`,{
            headers: {
         Authorization: token,
       }

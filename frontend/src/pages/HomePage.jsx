@@ -10,11 +10,12 @@ const HomePage = () => {
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('token');
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchBooks = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3000/books", {
+      const response = await axios.get(`${API_URL}/books`, {
         headers: {
           Authorization: token,
         },

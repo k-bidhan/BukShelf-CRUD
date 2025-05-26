@@ -5,6 +5,7 @@ import Toast from "../components/Toast";
 
 
 const AddBook = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const placeholderCover =
     "https://img.freepik.com/free-vector/vector-blank-book-cover-isolated-white_1284-41904.jpg?semt=ais_hybrid&w=740";
   const [loading, setLoading] = useState(false);
@@ -31,7 +32,7 @@ const AddBook = () => {
       setLoading(true);
       e.preventDefault();
       const response = await axios.post(
-        "http://localhost:3000/books",
+        `${API_URL}/books`,
         formData,{
            headers: {
         Authorization: token,
