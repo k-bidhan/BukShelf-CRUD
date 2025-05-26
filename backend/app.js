@@ -11,7 +11,7 @@ const bookRoute = require("./routes/bookRoute");
 const app = express();
 
 app.use(cors({
-    origin : "http://localhost:5173"
+    origin : "https://buk-shelf-crud.vercel.app"
 }));
 app.use(express.json());
 
