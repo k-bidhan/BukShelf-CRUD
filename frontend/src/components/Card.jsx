@@ -18,7 +18,7 @@ const BookCard = ({ book }) => {
         <div className="flex justify-between items-start gap-2">
           <div className="flex-1">
             <h3 className="text-xl font-semibold text-gray-900 break-words">{book.bookName}</h3>
-            <p className="text-sm text-gray-600 break-words">{book.bookAuthor}</p>
+            <p className="text-sm text-gray-600 break-words">By {book.bookAuthor}</p>
           </div>
           <span className="text-lg font-mono text-gray-900 whitespace-nowrap">NPR {book.bookPrice}/-</span>
         </div>
