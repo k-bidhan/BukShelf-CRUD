@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Toast from "../components/Toast";
 
-
 const AddBook = () => {
   const API_URL = import.meta.env.VITE_API_URL;
   const placeholderCover =
     "https://img.freepik.com/free-vector/vector-blank-book-cover-isolated-white_1284-41904.jpg?semt=ais_hybrid&w=740";
   const [loading, setLoading] = useState(false);
-  const [showToast, setShowToast] = useState(false)
-  const token = localStorage.getItem('token');
+  const [showToast, setShowToast] = useState(false);
+  const token = localStorage.getItem("token");
 
   const [formData, setFormData] = useState({
     bookName: "",
@@ -31,15 +30,11 @@ const AddBook = () => {
     try {
       setLoading(true);
       e.preventDefault();
-      const response = await axios.post(
-        `${API_URL}/books`,
-        formData,{
-           headers: {
-        Authorization: token,
-      }
-        }
-        
-      );
+      const response = await axios.post(`${API_URL}/books`, formData, {
+        headers: {
+          Authorization: token,
+        },
+      });
       if (response.status === 201 || response.status === 200) {
         setFormData({
           bookName: "",
@@ -48,8 +43,7 @@ const AddBook = () => {
           bookGenre: "",
           bookCover: "",
         });
-      setShowToast(true)
-
+        setShowToast(true);
       }
     } catch (err) {
       alert("API ERROR");
@@ -61,12 +55,12 @@ const AddBook = () => {
 
   return (
     <div className="w-full px-4 py-8 flex justify-center h-fit lg:max-h-screen">
-  
-    {
-      showToast && (
-        <Toast message={'Book Added Successfully!'} onClose={() => setShowToast(false)}/>
-      )
-    }
+      {showToast && (
+        <Toast
+          message={"Book Added Successfully!"}
+          onClose={() => setShowToast(false)}
+        />
+      )}
 
       <div className="w-full max-w-2xl max-h-3xl bg-white/70 backdrop-blur-sm shadow-sm  border-gray-200 rounded-lg p-6">
         <h1 className="text-center text-2xl font-bold mb-6 text-black">
@@ -164,7 +158,8 @@ const AddBook = () => {
 
           <div className="flex justify-center gap-3 mt-4">
             <button
-              type="submit" disabled={loading}
+              type="submit"
+              disabled={loading}
               className="bg-black flex items-center justify-center text-white text-sm font-semibold w-25 py-2 rounded hover:bg-gray-900 transition"
             >
               {loading ? (

@@ -9,7 +9,7 @@ const HomePage = () => {
   const [search, setSearch] = useState("");
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchBooks = async () => {
@@ -28,7 +28,7 @@ const HomePage = () => {
         alert("API Error");
         console.error();
       }
-    } catch(error) {
+    } catch (error) {
       console.error(error);
       alert("ERROR IN FUNCTION");
     } finally {
