@@ -129,7 +129,7 @@ const AddBook = () => {
             </div>
             <div className="flex flex-col">
               <label className="text-sm font-medium text-gray-700 mb-1">
-                Price ($)
+                Price (NPR)
               </label>
               <input
                 type="number"
